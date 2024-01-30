@@ -1,0 +1,108 @@
+$comment
+	File created using the following command:
+		vcd file riscv-fpga.msim.vcd -direction
+$end
+$date
+	Tue Jan 30 13:59:11 2024
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module adder_vlg_vec_tst $end
+$var reg 1 ! i_carry $end
+$var reg 1 " input1 $end
+$var reg 1 # input2 $end
+$var wire 1 $ o_carry $end
+$var wire 1 % result $end
+$var wire 1 & sampler $end
+$scope module i1 $end
+$var wire 1 ' gnd $end
+$var wire 1 ( vcc $end
+$var wire 1 ) unknown $end
+$var tri1 1 * devclrn $end
+$var tri1 1 + devpor $end
+$var tri1 1 , devoe $end
+$var wire 1 - i_carry~combout $end
+$var wire 1 . input1~combout $end
+$var wire 1 / input2~combout $end
+$var wire 1 0 result~0_combout $end
+$var wire 1 1 o_carry~0_combout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1!
+1"
+1#
+1$
+1%
+x&
+0'
+1(
+x)
+1*
+1+
+1,
+1-
+1.
+1/
+10
+11
+$end
+#100000
+0!
+0-
+0&
+00
+0%
+#200000
+0#
+1!
+0/
+1-
+1&
+#300000
+0!
+0-
+0&
+01
+10
+0$
+1%
+#400000
+0"
+1#
+1!
+0.
+1/
+1-
+1&
+11
+00
+1$
+0%
+#500000
+0!
+0-
+0&
+01
+10
+0$
+1%
+#600000
+0#
+1!
+0/
+1-
+1&
+#700000
+0!
+0-
+0&
+00
+0%
+#800000

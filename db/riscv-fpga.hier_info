@@ -1,0 +1,14 @@
+|adder
+input1 => result.IN0
+input1 => o_carry.IN0
+input1 => o_carry.IN0
+input2 => result.IN1
+input2 => o_carry.IN1
+input2 => o_carry.IN0
+i_carry => result.IN1
+i_carry => o_carry.IN1
+i_carry => o_carry.IN1
+result <= result.DB_MAX_OUTPUT_PORT_TYPE
+o_carry <= o_carry.DB_MAX_OUTPUT_PORT_TYPE
+
+

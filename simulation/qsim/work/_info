@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Colton\Desktop\riscv-fpga\simulation\qsim
+vadder
+Z1 InnT15=fElT?=ULf]oNeQR0
+Z2 VG?<9K;zXI:Uf`eg?XOA:W3
+Z3 dC:\Users\Colton\Desktop\riscv-fpga\simulation\qsim
+Z4 w1706651950
+Z5 8riscv-fpga.vo
+Z6 Friscv-fpga.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+!i10b 1
+Z9 !s100 W[7j;U_UP@7;V7fZ@I_9S1
+!s85 0
+Z10 !s108 1706651951.002000
+Z11 !s107 riscv-fpga.vo|
+Z12 !s90 -work|work|riscv-fpga.vo|
+!s101 -O0
+vadder_vlg_check_tst
+!i10b 1
+!s100 J^Tj1G::nfSFWz>151S>n2
+I5JSTY;2zP<`C5Rgm8[9Kn1
+VNcT13zoiHLkSOJB3A:1H_3
+R3
+Z13 w1706651949
+Z14 8riscv-fpga.vt
+Z15 Friscv-fpga.vt
+L0 61
+R7
+r1
+!s85 0
+31
+Z16 !s108 1706651951.140000
+Z17 !s107 riscv-fpga.vt|
+Z18 !s90 -work|work|riscv-fpga.vt|
+!s101 -O0
+R8
+vadder_vlg_sample_tst
+!i10b 1
+!s100 O5i>:W=m0eb<IJEO3^K2V0
+IECbSzmUoRH4aYzjn[2ahn3
+VR8n_<N6S7>N4N]`el?`5H0
+R3
+R13
+R14
+R15
+L0 29
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8
+vadder_vlg_vec_tst
+!i10b 1
+!s100 :D3oLd5XlF3V4I:24TCGS2
+IN_FLkjYJND7FbfUVjLoBA2
+VH6e:EbJTofQI;3XL_JdoF3
+R3
+R13
+R14
+R15
+L0 183
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8

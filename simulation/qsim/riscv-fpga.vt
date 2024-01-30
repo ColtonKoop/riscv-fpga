@@ -1,0 +1,247 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "01/30/2024 13:59:09"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    adder
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module adder_vlg_sample_tst(
+	i_carry,
+	input1,
+	input2,
+	sampler_tx
+);
+input  i_carry;
+input  input1;
+input  input2;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(i_carry or input1 or input2)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module adder_vlg_check_tst (
+	o_carry,
+	result,
+	sampler_rx
+);
+input  o_carry;
+input  result;
+input sampler_rx;
+
+reg  o_carry_expected;
+reg  result_expected;
+
+reg  o_carry_prev;
+reg  result_prev;
+
+reg  o_carry_expected_prev;
+reg  result_expected_prev;
+
+reg  last_o_carry_exp;
+reg  last_result_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:2] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 2'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	o_carry_prev = o_carry;
+	result_prev = result;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	o_carry_expected_prev = o_carry_expected;
+	result_expected_prev = result_expected;
+end
+
+
+
+// expected result
+initial
+begin
+	result_expected = 1'bX;
+end 
+
+// expected o_carry
+initial
+begin
+	o_carry_expected = 1'bX;
+end 
+// generate trigger
+always @(o_carry_expected or o_carry or result_expected or result)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected o_carry = %b | expected result = %b | ",o_carry_expected_prev,result_expected_prev);
+	$display("| real o_carry = %b | real result = %b | ",o_carry_prev,result_prev);
+`endif
+	if (
+		( o_carry_expected_prev !== 1'bx ) && ( o_carry_prev !== o_carry_expected_prev )
+		&& ((o_carry_expected_prev !== last_o_carry_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port o_carry :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", o_carry_expected_prev);
+		$display ("     Real value = %b", o_carry_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_o_carry_exp = o_carry_expected_prev;
+	end
+	if (
+		( result_expected_prev !== 1'bx ) && ( result_prev !== result_expected_prev )
+		&& ((result_expected_prev !== last_result_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port result :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", result_expected_prev);
+		$display ("     Real value = %b", result_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_result_exp = result_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#800000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module adder_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg i_carry;
+reg input1;
+reg input2;
+// wires                                               
+wire o_carry;
+wire result;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+adder i1 (
+// port map - connection between master ports and signals/registers   
+	.i_carry(i_carry),
+	.input1(input1),
+	.input2(input2),
+	.o_carry(o_carry),
+	.result(result)
+);
+
+// input1
+initial
+begin
+	input1 = 1'b1;
+	input1 = #400000 1'b0;
+end 
+
+// input2
+initial
+begin
+	input2 = 1'b1;
+	input2 = #200000 1'b0;
+	input2 = #200000 1'b1;
+	input2 = #200000 1'b0;
+end 
+
+// i_carry
+initial
+begin
+	i_carry = 1'b1;
+	i_carry = #100000 1'b0;
+	i_carry = #100000 1'b1;
+	i_carry = #100000 1'b0;
+	i_carry = #100000 1'b1;
+	i_carry = #100000 1'b0;
+	i_carry = #100000 1'b1;
+	i_carry = #100000 1'b0;
+end 
+
+adder_vlg_sample_tst tb_sample (
+	.i_carry(i_carry),
+	.input1(input1),
+	.input2(input2),
+	.sampler_tx(sampler)
+);
+
+adder_vlg_check_tst tb_out(
+	.o_carry(o_carry),
+	.result(result),
+	.sampler_rx(sampler)
+);
+endmodule
+

@@ -1,0 +1,12 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Colton/Desktop/riscv-fpga/adder.v
+source_file = 1, C:/Users/Colton/Desktop/riscv-fpga/Waveform.vwf
+source_file = 1, C:/Users/Colton/Desktop/riscv-fpga/db/riscv-fpga.cbx.xml
+design_name = adder
+instance = comp, \i_carry~I , i_carry, adder, 1
+instance = comp, \input1~I , input1, adder, 1
+instance = comp, \input2~I , input2, adder, 1
+instance = comp, \result~0 , result~0, adder, 1
+instance = comp, \o_carry~0 , o_carry~0, adder, 1
+instance = comp, \result~I , result, adder, 1
+instance = comp, \o_carry~I , o_carry, adder, 1

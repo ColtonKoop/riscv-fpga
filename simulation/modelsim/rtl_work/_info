@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Colton\Desktop\riscv-fpga\simulation\modelsim
+vadder
+!i10b 1
+!s100 `_<FjNI<zZ?^cL8f588Do1
+IeYE0L:0N01RUi>XcnHgO92
+VG?<9K;zXI:Uf`eg?XOA:W3
+Z1 dC:\Users\Colton\Desktop\riscv-fpga\simulation\modelsim
+w1706650805
+8C:/Users/Colton/Desktop/riscv-fpga/adder.v
+FC:/Users/Colton/Desktop/riscv-fpga/adder.v
+L0 1
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1706651295.861000
+!s107 C:/Users/Colton/Desktop/riscv-fpga/adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colton/Desktop/riscv-fpga|C:/Users/Colton/Desktop/riscv-fpga/adder.v|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+C:/Users/Colton/Desktop/riscv-fpga -O0
