@@ -1,9 +1,9 @@
 module adder64(
-	input[63:0] a,
-	input[63:0] b,
+	input[63:0] a, b,
 	input cin,
 	output[63:0] sum,
-	output cout);
+	output cout, ovfl
+);
 	
 	wire[63:0] cout_wires;
 	
@@ -18,5 +18,6 @@ module adder64(
 	endgenerate
 	
 	assign cout = cout_wires[63];
+	assign ovfl = cin ^ cout;
 	
 endmodule 

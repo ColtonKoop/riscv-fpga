@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Colton\Desktop\riscv-fpga\simulation\modelsim
+vadder64
+!i10b 1
+!s100 6=0;ii113nP8fcYB5]3=23
+I@LG3YC<bj;B5oCjOiZ<ln3
+Vo6NWEBB<@Bch;ZIkmF;B<1
+Z1 dC:\Users\Colton\Desktop\riscv-fpga\simulation\modelsim
+w1706761768
+8riscv-fpga.vo
+Friscv-fpga.vo
+L0 31
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1707718970.524000
+!s107 riscv-fpga.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|riscv-fpga.vo|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+. -O0

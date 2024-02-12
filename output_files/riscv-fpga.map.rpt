@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv-fpga
-Wed Jan 31 20:20:11 2024
+Sun Feb 11 22:22:55 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,8 +14,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -41,13 +42,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jan 31 20:20:11 2024           ;
+; Analysis & Synthesis Status        ; Successful - Sun Feb 11 22:22:55 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv-fpga                                      ;
-; Top-level Entity Name              ; adder64                                         ;
+; Top-level Entity Name              ; logic_unit                                      ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 162                                             ;
-;     Total combinational functions  ; 162                                             ;
+; Total logic elements               ; 64                                              ;
+;     Total combinational functions  ; 64                                              ;
 ;     Dedicated logic registers      ; 0                                               ;
 ; Total registers                    ; 0                                               ;
 ; Total pins                         ; 194                                             ;
@@ -64,7 +65,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C70F896C6       ;                    ;
-; Top-level entity name                                                      ; adder64            ; riscv-fpga         ;
+; Top-level entity name                                                      ; logic_unit         ; riscv-fpga         ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -154,117 +155,52 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                               ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                 ; Library ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------+---------+
-; adder1.v                         ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/adder1.v  ;         ;
-; adder64.v                        ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/adder64.v ;         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                  ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                    ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
+; logic_unit.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/logic_unit.v ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                         ;
-+---------------------------------------------+---------------------------------------+
-; Resource                                    ; Usage                                 ;
-+---------------------------------------------+---------------------------------------+
-; Estimated Total logic elements              ; 162                                   ;
-;                                             ;                                       ;
-; Total combinational functions               ; 162                                   ;
-; Logic element usage by number of LUT inputs ;                                       ;
-;     -- 4 input functions                    ; 68                                    ;
-;     -- 3 input functions                    ; 43                                    ;
-;     -- <=2 input functions                  ; 51                                    ;
-;                                             ;                                       ;
-; Logic elements by mode                      ;                                       ;
-;     -- normal mode                          ; 162                                   ;
-;     -- arithmetic mode                      ; 0                                     ;
-;                                             ;                                       ;
-; Total registers                             ; 0                                     ;
-;     -- Dedicated logic registers            ; 0                                     ;
-;     -- I/O registers                        ; 0                                     ;
-;                                             ;                                       ;
-; I/O pins                                    ; 194                                   ;
-; Embedded Multiplier 9-bit elements          ; 0                                     ;
-; Maximum fan-out node                        ; adder1:adders[2].adder1_inst_i|cout~0 ;
-; Maximum fan-out                             ; 3                                     ;
-; Total fan-out                               ; 568                                   ;
-; Average fan-out                             ; 1.60                                  ;
-+---------------------------------------------+---------------------------------------+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimated Total logic elements              ; 64         ;
+;                                             ;            ;
+; Total combinational functions               ; 64         ;
+; Logic element usage by number of LUT inputs ;            ;
+;     -- 4 input functions                    ; 64         ;
+;     -- 3 input functions                    ; 0          ;
+;     -- <=2 input functions                  ; 0          ;
+;                                             ;            ;
+; Logic elements by mode                      ;            ;
+;     -- normal mode                          ; 64         ;
+;     -- arithmetic mode                      ; 0          ;
+;                                             ;            ;
+; Total registers                             ; 0          ;
+;     -- Dedicated logic registers            ; 0          ;
+;     -- I/O registers                        ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 194        ;
+; Embedded Multiplier 9-bit elements          ; 0          ;
+; Maximum fan-out node                        ; LogicFn[0] ;
+; Maximum fan-out                             ; 64         ;
+; Total fan-out                               ; 320        ;
+; Average fan-out                             ; 1.24       ;
++---------------------------------------------+------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
-; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                      ; Library Name ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
-; |adder64                             ; 162 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 194  ; 0            ; |adder64                                 ; work         ;
-;    |adder1:adder1_inst_0|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adder1_inst_0            ; work         ;
-;    |adder1:adders[10].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[10].adder1_inst_i ; work         ;
-;    |adder1:adders[11].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[11].adder1_inst_i ; work         ;
-;    |adder1:adders[12].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[12].adder1_inst_i ; work         ;
-;    |adder1:adders[13].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[13].adder1_inst_i ; work         ;
-;    |adder1:adders[14].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[14].adder1_inst_i ; work         ;
-;    |adder1:adders[15].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[15].adder1_inst_i ; work         ;
-;    |adder1:adders[16].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[16].adder1_inst_i ; work         ;
-;    |adder1:adders[17].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[17].adder1_inst_i ; work         ;
-;    |adder1:adders[18].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[18].adder1_inst_i ; work         ;
-;    |adder1:adders[19].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[19].adder1_inst_i ; work         ;
-;    |adder1:adders[1].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[1].adder1_inst_i  ; work         ;
-;    |adder1:adders[20].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[20].adder1_inst_i ; work         ;
-;    |adder1:adders[21].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[21].adder1_inst_i ; work         ;
-;    |adder1:adders[22].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[22].adder1_inst_i ; work         ;
-;    |adder1:adders[23].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[23].adder1_inst_i ; work         ;
-;    |adder1:adders[24].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[24].adder1_inst_i ; work         ;
-;    |adder1:adders[25].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[25].adder1_inst_i ; work         ;
-;    |adder1:adders[26].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[26].adder1_inst_i ; work         ;
-;    |adder1:adders[27].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[27].adder1_inst_i ; work         ;
-;    |adder1:adders[28].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[28].adder1_inst_i ; work         ;
-;    |adder1:adders[29].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[29].adder1_inst_i ; work         ;
-;    |adder1:adders[2].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[2].adder1_inst_i  ; work         ;
-;    |adder1:adders[30].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[30].adder1_inst_i ; work         ;
-;    |adder1:adders[31].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[31].adder1_inst_i ; work         ;
-;    |adder1:adders[32].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[32].adder1_inst_i ; work         ;
-;    |adder1:adders[33].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[33].adder1_inst_i ; work         ;
-;    |adder1:adders[34].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[34].adder1_inst_i ; work         ;
-;    |adder1:adders[35].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[35].adder1_inst_i ; work         ;
-;    |adder1:adders[36].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[36].adder1_inst_i ; work         ;
-;    |adder1:adders[37].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[37].adder1_inst_i ; work         ;
-;    |adder1:adders[38].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[38].adder1_inst_i ; work         ;
-;    |adder1:adders[39].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[39].adder1_inst_i ; work         ;
-;    |adder1:adders[3].adder1_inst_i|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[3].adder1_inst_i  ; work         ;
-;    |adder1:adders[40].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[40].adder1_inst_i ; work         ;
-;    |adder1:adders[41].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[41].adder1_inst_i ; work         ;
-;    |adder1:adders[42].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[42].adder1_inst_i ; work         ;
-;    |adder1:adders[43].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[43].adder1_inst_i ; work         ;
-;    |adder1:adders[44].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[44].adder1_inst_i ; work         ;
-;    |adder1:adders[45].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[45].adder1_inst_i ; work         ;
-;    |adder1:adders[46].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[46].adder1_inst_i ; work         ;
-;    |adder1:adders[47].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[47].adder1_inst_i ; work         ;
-;    |adder1:adders[48].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[48].adder1_inst_i ; work         ;
-;    |adder1:adders[49].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[49].adder1_inst_i ; work         ;
-;    |adder1:adders[4].adder1_inst_i|  ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[4].adder1_inst_i  ; work         ;
-;    |adder1:adders[50].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[50].adder1_inst_i ; work         ;
-;    |adder1:adders[51].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[51].adder1_inst_i ; work         ;
-;    |adder1:adders[52].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[52].adder1_inst_i ; work         ;
-;    |adder1:adders[53].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[53].adder1_inst_i ; work         ;
-;    |adder1:adders[54].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[54].adder1_inst_i ; work         ;
-;    |adder1:adders[55].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[55].adder1_inst_i ; work         ;
-;    |adder1:adders[56].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[56].adder1_inst_i ; work         ;
-;    |adder1:adders[57].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[57].adder1_inst_i ; work         ;
-;    |adder1:adders[58].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[58].adder1_inst_i ; work         ;
-;    |adder1:adders[59].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[59].adder1_inst_i ; work         ;
-;    |adder1:adders[5].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[5].adder1_inst_i  ; work         ;
-;    |adder1:adders[60].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[60].adder1_inst_i ; work         ;
-;    |adder1:adders[61].adder1_inst_i| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[61].adder1_inst_i ; work         ;
-;    |adder1:adders[62].adder1_inst_i| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[62].adder1_inst_i ; work         ;
-;    |adder1:adders[63].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[63].adder1_inst_i ; work         ;
-;    |adder1:adders[6].adder1_inst_i|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[6].adder1_inst_i  ; work         ;
-;    |adder1:adders[7].adder1_inst_i|  ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[7].adder1_inst_i  ; work         ;
-;    |adder1:adders[8].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[8].adder1_inst_i  ; work         ;
-;    |adder1:adders[9].adder1_inst_i|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |adder64|adder1:adders[9].adder1_inst_i  ; work         ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |logic_unit                ; 64 (64)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 194  ; 0            ; |logic_unit         ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -283,6 +219,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 64 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |logic_unit|Mux63          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -298,25 +243,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jan 31 20:20:10 2024
+    Info: Processing started: Sun Feb 11 22:22:55 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv-fpga -c riscv-fpga
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file adder1.v
     Info (12023): Found entity 1: adder1
 Info (12021): Found 1 design units, including 1 entities, in source file adder64.v
     Info (12023): Found entity 1: adder64
-Info (12127): Elaborating entity "adder64" for the top level hierarchy
-Info (12128): Elaborating entity "adder1" for hierarchy "adder1:adder1_inst_0"
+Info (12021): Found 1 design units, including 1 entities, in source file arithmetic_unit.v
+    Info (12023): Found entity 1: arithmetic_unit
+Info (12021): Found 1 design units, including 1 entities, in source file logic_unit.v
+    Info (12023): Found entity 1: logic_unit
+Info (12127): Elaborating entity "logic_unit" for the top level hierarchy
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 356 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 129 input pins
-    Info (21059): Implemented 65 output pins
-    Info (21061): Implemented 162 logic cells
+Info (21057): Implemented 258 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 130 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 64 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4595 megabytes
-    Info: Processing ended: Wed Jan 31 20:20:11 2024
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4596 megabytes
+    Info: Processing ended: Sun Feb 11 22:22:55 2024
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 
