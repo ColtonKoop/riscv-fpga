@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv-fpga
-Sun Feb 11 22:22:55 2024
+Mon Feb 12 22:38:14 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -42,16 +42,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb 11 22:22:55 2024           ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb 12 22:38:14 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv-fpga                                      ;
-; Top-level Entity Name              ; logic_unit                                      ;
+; Top-level Entity Name              ; srl64                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 64                                              ;
-;     Total combinational functions  ; 64                                              ;
+; Total logic elements               ; 330                                             ;
+;     Total combinational functions  ; 330                                             ;
 ;     Dedicated logic registers      ; 0                                               ;
 ; Total registers                    ; 0                                               ;
-; Total pins                         ; 194                                             ;
+; Total pins                         ; 134                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -65,7 +65,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C70F896C6       ;                    ;
-; Top-level entity name                                                      ; logic_unit         ; riscv-fpga         ;
+; Top-level entity name                                                      ; srl64              ; riscv-fpga         ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -155,43 +155,43 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                  ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                    ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
-; logic_unit.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/logic_unit.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                             ;
++----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path               ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
+; srl64.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/srl64.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
 
 
-+----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary              ;
-+---------------------------------------------+------------+
-; Resource                                    ; Usage      ;
-+---------------------------------------------+------------+
-; Estimated Total logic elements              ; 64         ;
-;                                             ;            ;
-; Total combinational functions               ; 64         ;
-; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 64         ;
-;     -- 3 input functions                    ; 0          ;
-;     -- <=2 input functions                  ; 0          ;
-;                                             ;            ;
-; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 64         ;
-;     -- arithmetic mode                      ; 0          ;
-;                                             ;            ;
-; Total registers                             ; 0          ;
-;     -- Dedicated logic registers            ; 0          ;
-;     -- I/O registers                        ; 0          ;
-;                                             ;            ;
-; I/O pins                                    ; 194        ;
-; Embedded Multiplier 9-bit elements          ; 0          ;
-; Maximum fan-out node                        ; LogicFn[0] ;
-; Maximum fan-out                             ; 64         ;
-; Total fan-out                               ; 320        ;
-; Average fan-out                             ; 1.24       ;
-+---------------------------------------------+------------+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 330           ;
+;                                             ;               ;
+; Total combinational functions               ; 330           ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 227           ;
+;     -- 3 input functions                    ; 100           ;
+;     -- <=2 input functions                  ; 3             ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 330           ;
+;     -- arithmetic mode                      ; 0             ;
+;                                             ;               ;
+; Total registers                             ; 0             ;
+;     -- Dedicated logic registers            ; 0             ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 134           ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+; Maximum fan-out node                        ; ShiftCount[0] ;
+; Maximum fan-out                             ; 96            ;
+; Total fan-out                               ; 1278          ;
+; Average fan-out                             ; 2.75          ;
++---------------------------------------------+---------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -199,7 +199,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |logic_unit                ; 64 (64)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 194  ; 0            ; |logic_unit         ; work         ;
+; |srl64                     ; 330 (330)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 134  ; 0            ; |srl64              ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -224,7 +224,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 4:1                ; 64 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |logic_unit|Mux63          ;
+; 4:1                ; 60 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |srl64|Mux110              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |srl64|Mux49               ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |srl64|Mux4                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |srl64|Mux32               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |srl64|Mux105              ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |srl64|Mux106              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -243,7 +248,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Feb 11 22:22:55 2024
+    Info: Processing started: Mon Feb 12 22:38:12 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv-fpga -c riscv-fpga
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file adder1.v
@@ -254,17 +259,21 @@ Info (12021): Found 1 design units, including 1 entities, in source file arithme
     Info (12023): Found entity 1: arithmetic_unit
 Info (12021): Found 1 design units, including 1 entities, in source file logic_unit.v
     Info (12023): Found entity 1: logic_unit
-Info (12127): Elaborating entity "logic_unit" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file sll64.v
+    Info (12023): Found entity 1: sll64
+Info (12021): Found 1 design units, including 1 entities, in source file srl64.v
+    Info (12023): Found entity 1: srl64
+Info (12127): Elaborating entity "srl64" for the top level hierarchy
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 258 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 130 input pins
+Info (21057): Implemented 464 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 70 input pins
     Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 64 logic cells
+    Info (21061): Implemented 330 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4596 megabytes
-    Info: Processing ended: Sun Feb 11 22:22:55 2024
-    Info: Elapsed time: 00:00:00
+    Info: Peak virtual memory: 4599 megabytes
+    Info: Processing ended: Mon Feb 12 22:38:14 2024
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
