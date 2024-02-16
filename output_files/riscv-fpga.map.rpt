@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv-fpga
-Mon Feb 12 22:38:14 2024
+Fri Feb 16 03:00:08 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -15,8 +15,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+ 10. Port Connectivity Checks: "arithmetic_unit:AU"
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -42,16 +43,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Feb 12 22:38:14 2024           ;
+; Analysis & Synthesis Status        ; Successful - Fri Feb 16 03:00:08 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv-fpga                                      ;
-; Top-level Entity Name              ; srl64                                           ;
+; Top-level Entity Name              ; execution_unit                                  ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 330                                             ;
-;     Total combinational functions  ; 330                                             ;
+; Total logic elements               ; 1,193                                           ;
+;     Total combinational functions  ; 1,193                                           ;
 ;     Dedicated logic registers      ; 0                                               ;
 ; Total registers                    ; 0                                               ;
-; Total pins                         ; 134                                             ;
+; Total pins                         ; 205                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -65,7 +66,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C70F896C6       ;                    ;
-; Top-level entity name                                                      ; srl64              ; riscv-fpga         ;
+; Top-level entity name                                                      ; execution_unit     ; riscv-fpga         ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -155,52 +156,130 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                             ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path               ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
-; srl64.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/srl64.v ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                       ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                         ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+; adder1.v                         ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/adder1.v          ;         ;
+; adder64.v                        ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/adder64.v         ;         ;
+; arithmetic_unit.v                ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/arithmetic_unit.v ;         ;
+; logic_unit.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/logic_unit.v      ;         ;
+; sll64.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/sll64.v           ;         ;
+; srl64.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/srl64.v           ;         ;
+; sra64.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/sra64.v           ;         ;
+; shift_unit.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/shift_unit.v      ;         ;
+; execution_unit.v                 ; yes             ; User Verilog HDL File  ; C:/Users/Colton/Desktop/riscv-fpga/execution_unit.v  ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                 ;
-+---------------------------------------------+---------------+
-; Resource                                    ; Usage         ;
-+---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 330           ;
-;                                             ;               ;
-; Total combinational functions               ; 330           ;
-; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 227           ;
-;     -- 3 input functions                    ; 100           ;
-;     -- <=2 input functions                  ; 3             ;
-;                                             ;               ;
-; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 330           ;
-;     -- arithmetic mode                      ; 0             ;
-;                                             ;               ;
-; Total registers                             ; 0             ;
-;     -- Dedicated logic registers            ; 0             ;
-;     -- I/O registers                        ; 0             ;
-;                                             ;               ;
-; I/O pins                                    ; 134           ;
-; Embedded Multiplier 9-bit elements          ; 0             ;
-; Maximum fan-out node                        ; ShiftCount[0] ;
-; Maximum fan-out                             ; 96            ;
-; Total fan-out                               ; 1278          ;
-; Average fan-out                             ; 2.75          ;
-+---------------------------------------------+---------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,193 ;
+;                                             ;       ;
+; Total combinational functions               ; 1193  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 967   ;
+;     -- 3 input functions                    ; 192   ;
+;     -- <=2 input functions                  ; 34    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 1193  ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 205   ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; B[1]  ;
+; Maximum fan-out                             ; 194   ;
+; Total fan-out                               ; 4581  ;
+; Average fan-out                             ; 3.28  ;
++---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |srl64                     ; 330 (330)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 134  ; 0            ; |srl64              ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                      ;
++--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                 ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Library Name ;
++--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
+; |execution_unit                            ; 1193 (469)        ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 205  ; 0            ; |execution_unit                                                                  ; work         ;
+;    |arithmetic_unit:AU|                    ; 157 (28)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU                                               ; work         ;
+;       |adder64:adder|                      ; 129 (1)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder                                 ; work         ;
+;          |adder1:adder1_inst_0|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adder1_inst_0            ; work         ;
+;          |adder1:adders[10].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[10].adder1_inst_i ; work         ;
+;          |adder1:adders[11].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[11].adder1_inst_i ; work         ;
+;          |adder1:adders[12].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[12].adder1_inst_i ; work         ;
+;          |adder1:adders[13].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[13].adder1_inst_i ; work         ;
+;          |adder1:adders[14].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[14].adder1_inst_i ; work         ;
+;          |adder1:adders[15].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[15].adder1_inst_i ; work         ;
+;          |adder1:adders[16].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[16].adder1_inst_i ; work         ;
+;          |adder1:adders[17].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[17].adder1_inst_i ; work         ;
+;          |adder1:adders[18].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[18].adder1_inst_i ; work         ;
+;          |adder1:adders[19].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[19].adder1_inst_i ; work         ;
+;          |adder1:adders[1].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[1].adder1_inst_i  ; work         ;
+;          |adder1:adders[20].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[20].adder1_inst_i ; work         ;
+;          |adder1:adders[21].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[21].adder1_inst_i ; work         ;
+;          |adder1:adders[22].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[22].adder1_inst_i ; work         ;
+;          |adder1:adders[23].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[23].adder1_inst_i ; work         ;
+;          |adder1:adders[24].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[24].adder1_inst_i ; work         ;
+;          |adder1:adders[25].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[25].adder1_inst_i ; work         ;
+;          |adder1:adders[26].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[26].adder1_inst_i ; work         ;
+;          |adder1:adders[27].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[27].adder1_inst_i ; work         ;
+;          |adder1:adders[28].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[28].adder1_inst_i ; work         ;
+;          |adder1:adders[29].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[29].adder1_inst_i ; work         ;
+;          |adder1:adders[2].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[2].adder1_inst_i  ; work         ;
+;          |adder1:adders[30].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[30].adder1_inst_i ; work         ;
+;          |adder1:adders[31].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[31].adder1_inst_i ; work         ;
+;          |adder1:adders[32].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[32].adder1_inst_i ; work         ;
+;          |adder1:adders[33].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[33].adder1_inst_i ; work         ;
+;          |adder1:adders[34].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[34].adder1_inst_i ; work         ;
+;          |adder1:adders[35].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[35].adder1_inst_i ; work         ;
+;          |adder1:adders[36].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[36].adder1_inst_i ; work         ;
+;          |adder1:adders[37].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[37].adder1_inst_i ; work         ;
+;          |adder1:adders[38].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[38].adder1_inst_i ; work         ;
+;          |adder1:adders[39].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[39].adder1_inst_i ; work         ;
+;          |adder1:adders[3].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[3].adder1_inst_i  ; work         ;
+;          |adder1:adders[40].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[40].adder1_inst_i ; work         ;
+;          |adder1:adders[41].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[41].adder1_inst_i ; work         ;
+;          |adder1:adders[42].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[42].adder1_inst_i ; work         ;
+;          |adder1:adders[43].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[43].adder1_inst_i ; work         ;
+;          |adder1:adders[44].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[44].adder1_inst_i ; work         ;
+;          |adder1:adders[45].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[45].adder1_inst_i ; work         ;
+;          |adder1:adders[46].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[46].adder1_inst_i ; work         ;
+;          |adder1:adders[47].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[47].adder1_inst_i ; work         ;
+;          |adder1:adders[48].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[48].adder1_inst_i ; work         ;
+;          |adder1:adders[49].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[49].adder1_inst_i ; work         ;
+;          |adder1:adders[4].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[4].adder1_inst_i  ; work         ;
+;          |adder1:adders[50].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[50].adder1_inst_i ; work         ;
+;          |adder1:adders[51].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[51].adder1_inst_i ; work         ;
+;          |adder1:adders[52].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[52].adder1_inst_i ; work         ;
+;          |adder1:adders[53].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[53].adder1_inst_i ; work         ;
+;          |adder1:adders[54].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[54].adder1_inst_i ; work         ;
+;          |adder1:adders[55].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[55].adder1_inst_i ; work         ;
+;          |adder1:adders[56].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[56].adder1_inst_i ; work         ;
+;          |adder1:adders[57].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[57].adder1_inst_i ; work         ;
+;          |adder1:adders[58].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[58].adder1_inst_i ; work         ;
+;          |adder1:adders[59].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[59].adder1_inst_i ; work         ;
+;          |adder1:adders[5].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[5].adder1_inst_i  ; work         ;
+;          |adder1:adders[60].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[60].adder1_inst_i ; work         ;
+;          |adder1:adders[61].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[61].adder1_inst_i ; work         ;
+;          |adder1:adders[62].adder1_inst_i| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[62].adder1_inst_i ; work         ;
+;          |adder1:adders[63].adder1_inst_i| ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[63].adder1_inst_i ; work         ;
+;          |adder1:adders[6].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[6].adder1_inst_i  ; work         ;
+;          |adder1:adders[7].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[7].adder1_inst_i  ; work         ;
+;          |adder1:adders[8].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[8].adder1_inst_i  ; work         ;
+;          |adder1:adders[9].adder1_inst_i|  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|arithmetic_unit:AU|adder64:adder|adder1:adders[9].adder1_inst_i  ; work         ;
+;    |logic_unit:LU|                         ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|logic_unit:LU                                                    ; work         ;
+;    |shift_unit:SU|                         ; 562 (53)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|shift_unit:SU                                                    ; work         ;
+;       |sll64:sll64_1|                      ; 212 (212)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|shift_unit:SU|sll64:sll64_1                                      ; work         ;
+;       |srl64:srl64_1|                      ; 297 (297)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |execution_unit|shift_unit:SU|srl64:srl64_1                                      ; work         ;
++--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -219,18 +298,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 4:1                ; 60 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |srl64|Mux110              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |srl64|Mux49               ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |srl64|Mux4                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |srl64|Mux32               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |srl64|Mux105              ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |srl64|Mux106              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |execution_unit|shift_unit:SU|srl64:srl64_1|Mux49  ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; No         ; |execution_unit|shift_unit:SU|srl64:srl64_1|Mux132 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |execution_unit|shift_unit:SU|srl64:srl64_1|Mux5   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |execution_unit|shift_unit:SU|sll64:sll64_1|Mux15  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |execution_unit|shift_unit:SU|sll64:sll64_1|Mux105 ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |execution_unit|shift_unit:SU|srl64:srl64_1|Mux104 ;
+; 14:1               ; 31 bits   ; 279 LEs       ; 248 LEs              ; 31 LEs                 ; No         ; |execution_unit|Mux4                               ;
+; 16:1               ; 28 bits   ; 280 LEs       ; 280 LEs              ; 0 LEs                  ; No         ; |execution_unit|Mux42                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "arithmetic_unit:AU"    ;
++------+--------+----------+------------------------+
+; Port ; Type   ; Severity ; Details                ;
++------+--------+----------+------------------------+
+; AddY ; Output ; Info     ; Explicitly unconnected ;
++------+--------+----------+------------------------+
 
 
 +-------------------------------+
@@ -238,7 +328,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -248,7 +338,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Feb 12 22:38:12 2024
+    Info: Processing started: Fri Feb 16 03:00:04 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv-fpga -c riscv-fpga
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file adder1.v
@@ -263,17 +353,31 @@ Info (12021): Found 1 design units, including 1 entities, in source file sll64.v
     Info (12023): Found entity 1: sll64
 Info (12021): Found 1 design units, including 1 entities, in source file srl64.v
     Info (12023): Found entity 1: srl64
-Info (12127): Elaborating entity "srl64" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file sra64.v
+    Info (12023): Found entity 1: sra64
+Info (12021): Found 1 design units, including 1 entities, in source file shift_unit.v
+    Info (12023): Found entity 1: shift_unit
+Info (12021): Found 1 design units, including 1 entities, in source file execution_unit.v
+    Info (12023): Found entity 1: execution_unit
+Info (12127): Elaborating entity "execution_unit" for the top level hierarchy
+Info (12128): Elaborating entity "arithmetic_unit" for hierarchy "arithmetic_unit:AU"
+Info (12128): Elaborating entity "adder64" for hierarchy "arithmetic_unit:AU|adder64:adder"
+Info (12128): Elaborating entity "adder1" for hierarchy "arithmetic_unit:AU|adder64:adder|adder1:adder1_inst_0"
+Info (12128): Elaborating entity "shift_unit" for hierarchy "shift_unit:SU"
+Info (12128): Elaborating entity "sll64" for hierarchy "shift_unit:SU|sll64:sll64_1"
+Info (12128): Elaborating entity "srl64" for hierarchy "shift_unit:SU|srl64:srl64_1"
+Info (12128): Elaborating entity "sra64" for hierarchy "shift_unit:SU|sra64:sra64_1"
+Info (12128): Elaborating entity "logic_unit" for hierarchy "logic_unit:LU"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 464 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 70 input pins
-    Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 330 logic cells
+Info (21057): Implemented 1398 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 136 input pins
+    Info (21059): Implemented 69 output pins
+    Info (21061): Implemented 1193 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4599 megabytes
-    Info: Processing ended: Mon Feb 12 22:38:14 2024
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4611 megabytes
+    Info: Processing ended: Fri Feb 16 03:00:08 2024
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
